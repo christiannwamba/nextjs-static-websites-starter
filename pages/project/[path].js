@@ -11,7 +11,7 @@ import {
 import { projects } from '../../utils/projectsData';
 
 function Project({ project, path }) {
-  const projectData = projects.find(project => project.slug = path);
+  const projectData = projects.find(project => project.slug === path);
   const Icon = projectIcons[projectData.id]
   console.log(path);
   return (
@@ -81,8 +81,9 @@ function Project({ project, path }) {
 
 Project.getInitialProps = async function (context) {
   const { path } = context.query;
-  const projectData = projects.find(project => project.slug = path);
+  const projectData = projects.find(project => project.slug === path);
   const ghPath = projectData.path;
+  
   const res = await fetch(`https://api.github.com/repos/${ghPath}`);
   const project = await res.json();
   return { project, path };

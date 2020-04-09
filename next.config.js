@@ -3,15 +3,15 @@ const data = require('./utils/projectsData');
 module.exports = {
   exportTrailingSlash: true,
   exportPathMap: async function () {
-    const { projectsSlug } = data;
+    const { projects } = data;
     const paths = {
       '/': { page: '/' },
     };
 
-    Object.keys(projectsSlug).forEach((key) => {
-      paths[`/project/${projectsSlug[key]}`] = {
+    projects.forEach((project) => {
+      paths[`/project/${project.slug}`] = {
         page: '/project/[path]',
-        query: { path: projectsSlug[key] },
+        query: { path: project.slug },
       };
     });
 
