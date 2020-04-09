@@ -1,23 +1,16 @@
-import {
-  ReactIcon,
-  VueIcon,
-  SvelteIcon,
-  NextIcon,
-  NuxtIcon,
-  GatsbyIcon,
-} from '../components/Icons';
 import SmallCard from '../components/SmallCard';
+import { projectIcons } from '../components/Icons';
+
+import { projectsSlug } from '../utils/projectsData';
 
 const Home = () => (
   <div className="home">
     <h1>What Can I Deploy to Static Apps?</h1>
     <div className="card-grid">
-      <SmallCard Icon={ReactIcon} title="facebook/react" />
-      <SmallCard Icon={VueIcon} title="vuejs/vue" />
-      <SmallCard Icon={SvelteIcon} title="sveltejs/svelte" />
-      <SmallCard Icon={NextIcon} title="zeit/next.js" />
-      <SmallCard Icon={NuxtIcon} title="nuxt/nuxt.js" />
-      <SmallCard Icon={GatsbyIcon} title="gatsbyjs/gatsby" />
+      {Object.keys(projectsSlug).map((key) => {
+        const Icon = projectIcons[key];
+        return <SmallCard Icon={Icon} title={key} slug={projectsSlug[key]} />;
+      })}
     </div>
   </div>
 );

@@ -242,3 +242,12 @@ export function GithubIcon() {
     </svg>
   );
 }
+
+export const projectIcons = {
+  react: ReactIcon,
+  vue: VueIcon,
+  svelte: SvelteIcon,
+  next: NextIcon,
+  nuxt: NuxtIcon,
+  gatsby: GatsbyIcon
+}

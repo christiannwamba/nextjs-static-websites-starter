@@ -95,6 +95,7 @@ h1 {
   color: #393939;
   display: block;
   padding: 20px 15px;
+  text-transform: capitalize;
 }
 
 .project ul > li > a:hover {

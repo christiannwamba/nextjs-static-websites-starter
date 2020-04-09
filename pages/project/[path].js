@@ -1,53 +1,31 @@
 import fetch from 'isomorphic-unfetch';
 import {
-  ReactIcon,
-  VueIcon,
-  SvelteIcon,
-  NextIcon,
-  NuxtIcon,
-  GatsbyIcon,
+  
   StarIcon,
   WatchIcon,
   BugIcon,
   AzureIcon,
-  GithubIcon
+  GithubIcon,
+  projectIcons
 } from '../../components/Icons';
-
-const icons = {
-  react: ReactIcon,
-  vue: VueIcon,
-  svelte: SvelteIcon,
-  'next.js': NextIcon,
-  'nuxt.js': NuxtIcon,
-  gatsby: GatsbyIcon,
-};
+import { projectsSlug } from '../../utils/projectsData';
 
 function Project({ project, path }) {
-  const Icon = icons[path.split('-')[1]];
+  const Icon = projectIcons[path.split('-')[1]];
   console.log(path);
   return (
     <div className="project">
       <aside>
         <h3>You can deploy...</h3>
         <ul>
-          <li>
-            <a href="/project/facebook-react">React</a>
-          </li>
-          <li>
-            <a href="/project/vuejs-vue">Vue</a>
-          </li>
-          <li>
-            <a href="/project/sveltejs-svelte">Svelte</a>
-          </li>
-          <li>
-            <a href="/project/zeit-next.js">Next.js</a>
-          </li>
-          <li>
-            <a href="/project/nuxt-nuxt.js">Nuxt</a>
-          </li>
-          <li>
-            <a href="/project/gatsbyjs-gatsby">Gatsby</a>
-          </li>
+          {Object.keys(projectsSlug).map((key) => {
+            return (
+              <li key={key}>
+                <a href={`/project/${projectsSlug[key]}`}>{key}</a>
+              </li>
+            );
+          })}
+
           <li>
             <a href="/">Home</a>
           </li>
@@ -79,15 +57,17 @@ function Project({ project, path }) {
               <p>issues</p>
             </div>
           </div>
-          <p className="description">
-            {project.description}
-          </p>
+          <p className="description">{project.description}</p>
           <div className="cta">
             <a className="button-azure" href="#">
               <AzureIcon w={24} h={24} />
               Deploy to Azure
             </a>
-            <a className="button-github" href={project.html_url} target="_blank">
+            <a
+              className="button-github"
+              href={project.html_url}
+              target="_blank"
+            >
               <GithubIcon w={24} h={24} />
               Learn more...
             </a>
