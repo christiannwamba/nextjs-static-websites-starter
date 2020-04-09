@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:nostatic": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "export": "next export",
     "serve": "serve out -p 9000"
