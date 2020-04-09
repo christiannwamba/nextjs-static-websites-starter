@@ -8,20 +8,21 @@ import {
   GithubIcon,
   projectIcons
 } from '../../components/Icons';
-import { projectsSlug } from '../../utils/projectsData';
+import { projects } from '../../utils/projectsData';
 
 function Project({ project, path }) {
-  const Icon = projectIcons[path.split('-')[1]];
+  const projectData = projects.find(project => project.slug = path);
+  const Icon = projectIcons[projectData.id]
   console.log(path);
   return (
     <div className="project">
       <aside>
         <h3>You can deploy...</h3>
         <ul>
-          {Object.keys(projectsSlug).map((key) => {
+          {projects.map((project) => {
             return (
-              <li key={key}>
-                <a href={`/project/${projectsSlug[key]}`}>{key}</a>
+              <li key={project.id}>
+                <a href={`/project/${project.slug}`}>{project.name}</a>
               </li>
             );
           })}
@@ -79,9 +80,9 @@ function Project({ project, path }) {
 }
 
 Project.getInitialProps = async function (context) {
-  context.res.setHeader('Content-Type', 'text/html')
   const { path } = context.query;
-  const ghPath = path.split('-').join('/');
+  const projectData = projects.find(project => project.slug = path);
+  const ghPath = projectData.path;
   const res = await fetch(`https://api.github.com/repos/${ghPath}`);
   const project = await res.json();
   return { project, path };

@@ -1,19 +1,8 @@
-
-const projects = {
-  react: 'facebook/react',
-  vue: 'vuejs/vue',
-  svelte: 'sveltejs/svelte',
-  'next.js': 'zeit/next.js',
-  'nuxt.js': 'nuxt/nuxt.js',
-  gatsby: 'gatsbyjs/gatsby',
-};
-
-const projectsSlug = {};
-
-Object.keys(projects).forEach((key) => {
-  projectsSlug[key] = projects[key].split('/').join('-');
-});
-
-
-
-module.exports = { projects, projectsSlug };
+export const projects = [
+  { id: 'react', name: 'React', path: 'facebook/react', slug: 'facebook-react' },
+  { id: 'vue', name: 'Vue', path: 'vuejs/vue', slug: 'vuejs-vue' },
+  { id: 'svelte', name: 'Svelte', path: 'sveltejs/svelte', slug: 'sveltejs-svelte' },
+  { id: 'next', name: 'Next.js', path: 'zeit/next.js', slug: 'zeit-nextjs' },
+  { id: 'nuxt', name: 'Nuxt.js', path: 'nuxt/nuxt.js', slug: 'nuxt-nuxtjs' },
+  { id: 'gatsby', name: 'Gatsby', path: 'gatsbyjs/gatsby.js', slug: 'gatsbyjs-gatsby' },
+];
