@@ -79,11 +79,11 @@ function Project({ project, path }) {
 }
 
 Project.getInitialProps = async function (context) {
+  context.res.setHeader('Content-Type', 'text/html')
   const { path } = context.query;
   const ghPath = path.split('-').join('/');
   const res = await fetch(`https://api.github.com/repos/${ghPath}`);
   const project = await res.json();
-console.log(project)
   return { project, path };
 };
 
