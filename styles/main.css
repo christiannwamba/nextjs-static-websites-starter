@@ -63,6 +63,7 @@ h1 {
   height: 100vh;
   flex-basis: 400px;
   padding-top: 50px;
+  border-right: 1px solid #e1e1e1;
 }
 
 .project > main {
