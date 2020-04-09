@@ -83,7 +83,7 @@ Project.getInitialProps = async function (context) {
   const ghPath = path.split('-').join('/');
   const res = await fetch(`https://api.github.com/repos/${ghPath}`);
   const project = await res.json();
-
+console.log(project)
   return { project, path };
 };
 

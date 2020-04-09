@@ -3,8 +3,8 @@ const projects = {
   react: 'facebook/react',
   vue: 'vuejs/vue',
   svelte: 'sveltejs/svelte',
-  next: 'zeit/next',
-  nuxt: 'nuxt/nuxt',
+  'next.js': 'zeit/next.js',
+  'nuxt.js': 'nuxt/nuxt.js',
   gatsby: 'gatsbyjs/gatsby',
 };
 

@@ -247,7 +247,7 @@ export const projectIcons = {
   react: ReactIcon,
   vue: VueIcon,
   svelte: SvelteIcon,
-  next: NextIcon,
-  nuxt: NuxtIcon,
+  'next.js': NextIcon,
+  'nuxt.js': NuxtIcon,
   gatsby: GatsbyIcon
 }
