@@ -1,6 +1,5 @@
 import fetch from 'isomorphic-unfetch';
 import {
-  
   StarIcon,
   WatchIcon,
   BugIcon,
